@@ -1,0 +1,22 @@
+title = "gitleaks"
+
+[extend]
+# useDefault will extend the base configuration with the default gitleaks config:
+# https://github.com/zricethezav/gitleaks/blob/master/config/gitleaks.toml
+useDefault = true
+
+[allowlist]
+description = "global allow lists"
+paths = [
+    '''.md''',
+]
+
+[[rules]]
+description = "Hardcoded credentials detection"
+id = "detect Credentials"
+regex = '''(((?i)password|pwd|pass(?-i)(\s)(:\s)))'''
+tags = [
+  "credentials",
+  "hardcoded",
+  "password",
+]
